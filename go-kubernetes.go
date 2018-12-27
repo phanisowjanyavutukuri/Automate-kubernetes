@@ -4,9 +4,9 @@ import (
 	"fmt"
 	_ "log"
 	"os/exec"
-	"Automate-kubernetes/kube_proxy"
-	"Automate-kubernetes/kube_scheuler"
-	"Automate-kubernetes/kube_controller"
+	"Automate-kubernetes/kube-proxy"
+	"Automate-kubernetes/kube-scheduler"
+	"Automate-kubernetes/kube-controller"
 )
 
 func main() {
