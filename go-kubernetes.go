@@ -1,7 +1,7 @@
 package main
 import (
     "fmt"
-    "log"
+    _"log"
     "os/exec"
 )
 func main(){
@@ -17,18 +17,17 @@ func main(){
 	Command = "chmod +x ~/bin/{cfssl,cfssljson}"
 		out, err = exec.Command(Command).Output()
 		if err == nil {
-	Command = export PATH=$PATH:~/bin
+	Command = "export PATH=$PATH:~/bin"
 		out, err = exec.Command(Command).Output()
 		}
 		}
 		}
 		}
-		
 
 		Command = "cfssl gencert -initca ca-csr.json | cfssljson -bare ca"
 		out,err = exec.Command(Command).Output()
 
-
+		fmt.Println(out)
 
 
 }
