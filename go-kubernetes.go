@@ -68,10 +68,14 @@ func main() {
 	cmd := " chmod 777  encryptionconfig.sh"
 	out, err = exec.Command("/bin/sh", "-c",cmd).Output()
 	out, err = exec.Command("/bin/sh", "-c",install-api-controller-scheduler.sh).Output()
+	out, err = exec.Command("/bin/sh", "-c",api_server.sh).Output()
+	out, err = exec.Command("/bin/sh", "-c",controller.sh).Output()
+	out, err = exec.Command("/bin/sh", "-c",kube-scheduler.yaml).Output()
+	out, err = exec.Command("/bin/sh", "-c",kube-scheduler-service).Output()
+	out, err = exec.Command("/bin/sh", "-c",enable_service).Output()
+
+
 	
-
-
-
 	fmt.Println(out)
 
 }
