@@ -1,6 +1,6 @@
-package kube-proxy
+package kube_proxy
 import "os/exec"
-func Kube-proxy-kubeconfig () {
+func Kube_proxy_kubeconfig () {
 
 command := "kubectl config set-cluster kubernetes-the-hard-way --certificate-authority=ca.pem --embed-certs=true --server=https://10.128.0.4:6443 --kubeconfig=kube-proxy.kubeconfig"
 out, err := exec.Command("/bin/sh", "-c", command).Output()

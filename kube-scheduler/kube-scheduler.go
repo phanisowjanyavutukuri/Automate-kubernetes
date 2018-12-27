@@ -1,6 +1,6 @@
-package kube-controller
+package kube_controller
 import "os/exec"
-func Kube-scheduler-kubeconfig () {
+func Kube_scheduler_kubeconfig () {
 
     command := "kubectl config set-cluster kubernetes-the-hard-way --certificate-authority=ca.pem --embed-certs=true --server=https://10.128.0.4:6443 --kubeconfig=kube-scheduler.kubeconfig"
     out, err := exec.Command("/bin/sh", "-c", command).Output()

@@ -4,9 +4,9 @@ import (
 	"fmt"
 	_ "log"
 	"os/exec"
-	"Automate-kubernetes/kube-proxy"
-	"Automate-kubernetes/kube-scheuler"
-	"Automate-kubernetes/kube-controller"
+	"Automate-kubernetes/kube_proxy"
+	"Automate-kubernetes/kube_scheuler"
+	"Automate-kubernetes/kube_controller"
 )
 
 func main() {
@@ -54,11 +54,11 @@ func main() {
 	Command = "kubectl config use-context default --kubeconfig=worker1.kubeconfig"
 	out, err = exec.Command("/bin/sh", "-c", Command).Output()
 	
-	kube-proxy.Kube-proxy-kubeconfig()
-	kube-controller.Kube-controller-kubeconfig()
-	kube-scheduler.Kube-scheduler-kubeconfig()
-	kube-admin.Kube-admin-kubeconfig()
-	
+	kube_proxy.Kube_proxy_kubeconfig()
+	kube_controller.Kube_controller_kubeconfig()
+	kube_scheduler.Kube_scheduler_kubeconfig()
+	kube_admin.Kube_admin_kubeconfig()
+
 
 
 
