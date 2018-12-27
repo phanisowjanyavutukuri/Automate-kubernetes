@@ -4,9 +4,9 @@ import (
 	"fmt"
 	_ "log"
 	"os/exec"
-	"Automate-kubernetes/kube_proxy"
-	"Automate-kubernetes/kube_scheuler"
-	"Automate-kubernetes/kube_controller"
+	"Automate-kubernetes/kube-proxy"
+	"Automate-kubernetes/kube-scheuler"
+	"Automate-kubernetes/kube-controller"
 )
 
 func main() {
@@ -59,6 +59,16 @@ func main() {
 	kube_scheduler.Kube_scheduler_kubeconfig()
 	kube_admin.Kube_admin_kubeconfig()
 
+	Command = "source encryptionconfig.sh; encrypt"
+	cmd := " chmod 777  encryptionconfig.sh"
+	out, err = exec.Command("/bin/sh", "-c",cmd).Output()
+	out, err = exec.Command("/bin/sh", "-c", Command).Output()
+	out, err = exec.Command("/bin/sh", "-c",install_etcd.sh).Output()
+	Command = "source etcd_service.sh; etcd_service"
+	cmd := " chmod 777  encryptionconfig.sh"
+	out, err = exec.Command("/bin/sh", "-c",cmd).Output()
+	out, err = exec.Command("/bin/sh", "-c",install-api-controller-scheduler.sh).Output()
+	
 
 
 
