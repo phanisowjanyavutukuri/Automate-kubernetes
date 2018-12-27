@@ -4,6 +4,9 @@ import (
 	"fmt"
 	_ "log"
 	"os/exec"
+	"Automate-kubernetes/kube-proxy"
+	"Automate-kubernetes/kube-scheuler"
+	"Automate-kubernetes/kube-controller"
 )
 
 func main() {
@@ -38,6 +41,26 @@ func main() {
 	out, err = exec.Command("/bin/sh", "-c", Command).Output()
 	Command = "cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-scheduler-csr.json | cfssljson -bare kube-scheduler"
 	out, err = exec.Command("/bin/sh", "-c", Command).Output()
+	Command = "cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -hostname=10.128.0.4,35.232.234.58,127.0.0.1,kubernetes.default -profile=kubernetes kubernetes-csr.json | cfssljson -bare kubernetes"
+	out, err = exec.Command("/bin/sh", "-c", Command).Output()
+	Command = "cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes service-account-csr.json | cfssljson -bare service-account"
+	out, err = exec.Command("/bin/sh", "-c", Command).Output()
+	Command = "kubectl config set-cluster kubernetes-the-hard-way --certificate-authority=ca.pem --embed-certs=true --server=https://10.128.0.4:6443 --kubeconfig=worker1.kubeconfig"
+	out, err = exec.Command("/bin/sh", "-c", Command).Output()
+	Command = "kubectl config set-credentials system:node:worker1 --client-certificate=worker1.pem --client-key=worker1-key.pem --embed-certs=true --kubeconfig=worker1.kubeconfig"
+	out, err = exec.Command("/bin/sh", "-c", Command).Output()
+	Command = "kubectl config set-context default --cluster=kubernetes-the-hard-way --user=system:node:worker1 --kubeconfig=worker1.kubeconfig"
+	out, err = exec.Command("/bin/sh", "-c", Command).Output()
+	Command = "kubectl config use-context default --kubeconfig=worker1.kubeconfig"
+	out, err = exec.Command("/bin/sh", "-c", Command).Output()
+	
+	kube-proxy.Kube-proxy-kubeconfig()
+	kube-controller.Kube-controller-kubeconfig()
+	kube-scheduler.Kube-scheduler-kubeconfig()
+	kube-admin.Kube-admin-kubeconfig()
+	
+
+
 
 	fmt.Println(out)
 
