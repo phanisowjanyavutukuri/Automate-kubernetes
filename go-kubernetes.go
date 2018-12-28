@@ -5,12 +5,9 @@ import (
 	_ "log"
 	"os/exec"
 	"Automate-kubernetes/kube-proxy"
-<<<<<<< HEAD
 	"Automate-kubernetes/kube-scheduler"
-=======
-	"Automate-kubernetes/kube-scheuler"
->>>>>>> 5b95f28166079330aec64f649b79885c8cb42605
 	"Automate-kubernetes/kube-controller"
+	"Automate-kubernetes/admin-kubeconfig"
 )
 
 func main() {
@@ -67,16 +64,16 @@ func main() {
 	cmd := " chmod 777  encryptionconfig.sh"
 	out, err = exec.Command("/bin/sh", "-c",cmd).Output()
 	out, err = exec.Command("/bin/sh", "-c", Command).Output()
-	out, err = exec.Command("/bin/sh", "-c",install_etcd.sh).Output()
+	out, err = exec.Command("/bin/sh", "-c","install_etcd.sh").Output()
 	Command = "source etcd_service.sh; etcd_service"
-	cmd := " chmod 777  encryptionconfig.sh"
+	cmd = " chmod 777  encryptionconfig.sh"
 	out, err = exec.Command("/bin/sh", "-c",cmd).Output()
-	out, err = exec.Command("/bin/sh", "-c",install-api-controller-scheduler.sh).Output()
-	out, err = exec.Command("/bin/sh", "-c",api_server.sh).Output()
-	out, err = exec.Command("/bin/sh", "-c",controller.sh).Output()
-	out, err = exec.Command("/bin/sh", "-c",kube-scheduler.yaml).Output()
-	out, err = exec.Command("/bin/sh", "-c",kube-scheduler-service).Output()
-	out, err = exec.Command("/bin/sh", "-c",enable_service).Output()
+	out, err = exec.Command("/bin/sh", "-c","install-api-controller-scheduler.sh").Output()
+	out, err = exec.Command("/bin/sh", "-c","apiserver.sh").Output()
+	out, err = exec.Command("/bin/sh", "-c","controller.sh").Output()
+	out, err = exec.Command("/bin/sh", "-c","kube-scheduler.yaml").Output()
+	out, err = exec.Command("/bin/sh", "-c","kube-scheduler-service").Output()
+	out, err = exec.Command("/bin/sh", "-c","enableservice").Output()
 
 
 	
