@@ -29,7 +29,7 @@ func main() {
 				}
 			}
 		}
-	}
+	
 
 	
 	out, err = exec.Command("/bin/sh", "-c", "cfssl gencert -initca ca-csr.json | cfssljson -bare ca").Output()
