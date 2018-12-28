@@ -68,12 +68,19 @@ func main() {
 	Command = "source etcd_service.sh; etcd_service"
 	cmd = " chmod 777  encryptionconfig.sh"
 	out, err = exec.Command("/bin/sh", "-c",cmd).Output()
+	out, err = exec.Command("/bin/sh", "-c", Command).Output()
 	out, err = exec.Command("/bin/sh", "-c","install-api-controller-scheduler.sh").Output()
 	out, err = exec.Command("/bin/sh", "-c","apiserver.sh").Output()
 	out, err = exec.Command("/bin/sh", "-c","controller.sh").Output()
 	out, err = exec.Command("/bin/sh", "-c","kube-scheduler.yaml").Output()
 	out, err = exec.Command("/bin/sh", "-c","kube-scheduler-service").Output()
 	out, err = exec.Command("/bin/sh", "-c","enableservice").Output()
+	out, err = exec.Command("/bin/sh", "-c","workerbinaries.sh").Output()
+	Command = "source bridge.sh; bridge"
+	out, err = exec.Command("/bin/sh", "-c", Command).Output()
+	out, err = exec.Command("/bin/sh", "-c","kubelet.sh").Output()
+
+
 
 
 	
