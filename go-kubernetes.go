@@ -11,8 +11,9 @@ import (
 )
 
 func main() {
-	
+	if _, err := os.Stat("~/bin"); os.IsNotExist(err) {
 	out,err := exec.Command("/bin/sh", "-c", "mkdir ~/bin").Output()
+	}
 	
 		
 		out, err = exec.Command("/bin/sh", "-c", "curl -s -L -o ~/bin/cfssl https://pkg.cfssl.org/R1.2/cfssl_linux-amd64").Output()
